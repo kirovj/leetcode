@@ -31,11 +31,40 @@
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String longestCommonPrefix(String[] strs) {
-        List<Character> prefix = strs[0].toCharArray();
+        char[] chars = strs[0].toCharArray();
+        List<Character> prefix = new ArrayList<>();
+        for (char c : chars) {
+            prefix.add(c);
+        }
+        int end = prefix.size();
+        for (int i = 1; i < strs.length; i++) {
+            if (end == 0) {
+                return "";
+            }
+            String str = strs[i];
+            int len = str.length();
+            for (int j = 0; j < end; j++) {
+                if (j >= len) {
+                    end = j;
+                    break;
+                }
+                char c = prefix.get(j);
+                if (c != str.charAt(j)) {
+                    end = j;
+                    break;
+                }
+            }
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < end; i++) {
+            stringBuilder.append(prefix.get(i));
+        }
+        return stringBuilder.toString();
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
