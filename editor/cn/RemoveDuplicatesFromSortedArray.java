@@ -69,10 +69,8 @@ public class RemoveDuplicatesFromSortedArray {
                 if (numY > nums[x]) {
                     nums[x + 1] = numY;
                     x++;
-                    y++;
-                } else {
-                    y++;
                 }
+                y++;
             }
             return ++x;
         }
