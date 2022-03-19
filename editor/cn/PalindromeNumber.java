@@ -42,25 +42,32 @@
 // 
 //
 // 进阶：你能不将整数转为字符串来解决这个问题吗？ 
-// Related Topics 数学 👍 1890 👎 0
+// Related Topics 数学 👍 1892 👎 0
 
 
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public boolean isPalindrome(int x) {
-        if (x < 0) return false;
-        if (x < 10) return true;
-        String s = String.valueOf(x);
-        int length = s.length();
-
-        for (int i = 0; i < length / 2; i++) {
-            char a = s.charAt(i);
-            char b = s.charAt(length - i - 1);
-            if (a != b) {
-                return false;
-            }
-        }
-        return true;
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        Solution solution = new PalindromeNumber().new Solution();
     }
-}
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        public boolean isPalindrome(int x) {
+            if (x < 0) return false;
+            if (x < 10) return true;
+            String s = String.valueOf(x);
+            int length = s.length();
+
+            for (int i = 0; i < length / 2; i++) {
+                char a = s.charAt(i);
+                char b = s.charAt(length - i - 1);
+                if (a != b) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
+
+}
