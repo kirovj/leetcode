@@ -15,7 +15,7 @@ def binary_search(array, item):
     right = len(array)
 
     while left <= right:
-        mid = (left + right) / 2
+        mid = int((left + right) / 2)
         guess = array[mid]
         if item == guess:
             return mid
@@ -25,3 +25,6 @@ def binary_search(array, item):
             right = mid - 1
     return None
 
+
+def test_binary_search():
+    assert binary_search([1, 2, 3, 4, 5, 6, 7], 6) == 5
