@@ -68,3 +68,27 @@ def test_restaurant_linked_list():
     assert restaurant.make() == "beef"
     assert restaurant.make() == "milk"
     assert restaurant.make() == "potato"
+
+
+###################################################
+
+# select sort
+def find_smallest(arr):
+    val = arr[0]
+    idx = 0
+    for i in range(1, len(arr)):
+        if val > arr[i]:
+            val = arr[i]
+            idx = i
+    return idx
+
+
+def select_sort(arr):
+    new_arr = []
+    for i in range(0, len(arr)):
+        new_arr.append(arr.pop(find_smallest(arr)))
+    return new_arr
+
+
+def test_select_sort():
+    assert select_sort([4, 5, 1, 3, 7]) == [1, 3, 4, 5, 7]
