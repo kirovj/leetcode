@@ -40,3 +40,16 @@ def max_recursion(arr: []):
 def test_max_recursion():
     assert 5 == max_recursion([3, 1, 5, 4, 0])
 
+
+# quick sort
+def quick_sort(arr):
+    if len(arr) < 2:
+        return arr
+    pivot = arr[0]
+    small = [i for i in arr[1:] if i <= pivot]
+    big = [i for i in arr[1:] if i > pivot]
+    return quick_sort(small) + [pivot] + quick_sort(big)
+
+
+def test_quick_sort():
+    assert [1, 2, 3, 4, 5, 6] == quick_sort([4, 2, 1, 3, 6, 5])
